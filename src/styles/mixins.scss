@@ -1,0 +1,29 @@
+@mixin _LDesktop {
+	@media screen and (min-width: $desktopL) {
+		@content;
+	}
+}
+
+@mixin _Desktop {
+	@media screen and (min-width: $desktop) {
+		@content;
+	}
+}
+
+@mixin _Laptop {
+	@media screen and (min-width: $laptop) {
+		@content;
+	}
+}
+
+@mixin _Tablet {
+	@media screen and (min-width: $tablet) {
+		@content;
+	}
+}
+
+@mixin _Mobile {
+	@media screen and (min-width: $mobile) {
+		@content;
+	}
+}
