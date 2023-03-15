@@ -1,0 +1,10 @@
+.decoration{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	svg{
+		fill: $white;
+		width: 400px;
+		height: 80px;
+	}
+}

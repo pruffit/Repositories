@@ -1,0 +1,37 @@
+.form{
+	padding: 60px 0;
+}
+.search{
+	display: grid;
+	grid-template-columns: 1fr 160px;
+	border-radius: 15px;
+	height: 60px;
+	&__input{
+		border: 5px solid $white;
+		border-radius: 15px 0px 0px 15px;
+		background-color: transparent;
+		color: $white;
+		padding: 0 20px;
+		font-size: 18px;
+		font-weight: 500;
+	}
+	&__button{
+		border-top: 5px solid $white;
+		border-right: 5px solid $white;
+		border-bottom: 5px solid $white;
+		border-radius: 0px 15px 15px 0px;
+		transition: background-color .2s ease-in-out;
+		&:hover{
+			background-color: $white;
+			svg{
+				fill: $dark;
+			}
+		}
+		svg{
+			width: 30px;
+			height: 30px;
+			fill: $white;
+			transition: fill .2s ease-in-out;
+		}
+	}
+}
