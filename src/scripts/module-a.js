@@ -1,19 +1,40 @@
 (function() {
 	const form = document.querySelector('.form');
 	const result = document.querySelector('.result');
+	const notFound = document.querySelector('.not-found');
+
+	const validateField = (field) => {
+		let valid = true;
+		if (field.value.length < 2) {
+			valid = false;
+			alert('Длина запроса должна быть хотя бы 2 символа!');
+		}
+		return valid;
+	}
+
 	form.addEventListener('submit', async(e) => {
 		e.preventDefault();
-		const inputsValue = Object.fromEntries(new FormData(e.target));
-		const response = await fetch(`https://api.github.com/search/repositories?q=${inputsValue.search.replace(' ', '+')} in:name&per_page=10`);
-		if(response.ok) {
-			deleteCards();
-			const data = await response.json();
-			const items = data['items'];
-			items.forEach(item => {
-				result.appendChild(createCard(item));
-			});
-		} else {
-			alert('Ёбаный насрал');
+		if(validateField(form.querySelector('input'))) {
+			const inputsValue = Object.fromEntries(new FormData(e.target));
+			const response = await fetch(`https://api.github.com/search/repositories?q=${inputsValue.search.replace(' ', '+')} in:name&per_page=10`);
+			if(response.ok) {
+				deleteCards();
+				const data = await response.json();
+				const items = data['items'];
+				if(items == '') {
+					notFound.innerHTML = `
+						Ничего не найдено
+					`
+				}
+				items.forEach(item => {
+					result.appendChild(createCard(item));
+				});
+				form.querySelector('.search__input').value = '';
+			} else {
+				notFound.innerHTML = `
+					Ничего не найдено
+				`
+			}
 		}
 	});
 	const createCard = (data) => {
@@ -37,5 +58,6 @@
 	}
 	const deleteCards = () => {
 		result.innerHTML = '';
+		notFound.innerHTML = '';
 	}
 })()
