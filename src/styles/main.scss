@@ -5,24 +5,29 @@
 
 html{
 	font-family: 'Inter', sans-serif;
-	&::-webkit-scrollbar {
-		width: 14px;/* ширина scrollbar */
-	}
-	&::-webkit-scrollbar-track {
-		background: $dark;/* цвет дорожки */
-	}
-	&::-webkit-scrollbar-thumb {
-		background-color: $white;/* цвет плашки */
-		border-radius: 10px;/* закругления плашки */
-		border: 5px solid $dark;
+	@include _Tablet{
+		&::-webkit-scrollbar {
+			width: 14px;/* ширина scrollbar */
+		}
+		&::-webkit-scrollbar-track {
+			background: $dark;/* цвет дорожки */
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: $white;/* цвет плашки */
+			border-radius: 10px;/* закругления плашки */
+			border: 5px solid $dark;
+		}
 	}
 }
 body{}
 .wrapper{
 	position: relative;
 	background-color: $dark;
-	padding: 30px;
+	padding: 10px 10px 30px 10px;
 	min-height: 100vh;
+	@include _Tablet{
+		padding: 30px;
+	}
 	.copyright{
 		position: absolute;
 		bottom: 8px;

@@ -1,19 +1,29 @@
 .form{
-	padding: 60px 0;
+	padding: 20px 0;
+	@include _Tablet{
+		padding: 60px 0;
+	}
 }
 .search{
 	display: grid;
-	grid-template-columns: 1fr 160px;
+	grid-template-columns: 1fr 1fr;
 	border-radius: 15px;
 	height: 60px;
+	@include _Tablet{
+		grid-template-columns: 1fr 160px;
+	}
 	&__input{
 		border: 5px solid $white;
 		border-radius: 15px 0px 0px 15px;
 		background-color: transparent;
 		color: $white;
-		padding: 0 20px;
-		font-size: 18px;
+		padding: 0 10px;
+		font-size: 16px;
 		font-weight: 500;
+		@include _Tablet{
+			padding: 0 20px;
+			font-size: 18px;
+		}
 	}
 	&__button{
 		border-top: 5px solid $white;
@@ -28,10 +38,14 @@
 			}
 		}
 		svg{
-			width: 30px;
-			height: 30px;
+			width: 20px;
+			height: 20px;
 			fill: $white;
 			transition: fill .2s ease-in-out;
+			@include _Tablet{
+				width: 30px;
+				height: 30px;
+			}
 		}
 	}
 }

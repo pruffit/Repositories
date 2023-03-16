@@ -4,7 +4,11 @@
 	justify-content: center;
 	svg{
 		fill: $white;
-		width: 400px;
-		height: 80px;
+		width: 200px;
+		height: 40px;
+		@include _Tablet{
+			width: 400px;
+			height: 80px;
+		}
 	}
 }
